@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setFirstData } from "../../../datas/dataSlice";
 
 const MainPage = () => {
+  const dispatch = useDispatch();
   const [activeItem, setActiveItem] = useState("");
 
+  /* BUTTON HANDLER */
   const clickedItem = (e: React.MouseEvent<HTMLButtonElement>) => {
     setActiveItem(e.currentTarget.value);
   };
 
   /* NEXT BUTTON */
-  const valueHandler = () => {};
+  const valueHandler = () => {
+    dispatch(setFirstData(activeItem));
+  };
 
   return (
     <div className="bg-white-bg w-screen h-screen md:h-screen flex justify-center">
@@ -27,10 +33,10 @@ const MainPage = () => {
             />
             <h1 className="tracking-wider font-bold">Fat Loss</h1>
             <button
-              className={`bg-white w-4 h-4 rounded-full ${
+              className={` w-4 h-4 rounded-full ${
                 activeItem === "fatloss"
-                  ? "bg-black ring-4 w-3 h-3 ring-white"
-                  : ""
+                  ? "bg-black ring-4 w-3 h-3 md:w-4 md:-4 ring-white"
+                  : "bg-white"
               }`}
               value={"fatloss"}
               onClick={(e) => clickedItem(e)}
@@ -45,10 +51,10 @@ const MainPage = () => {
             />
             <h1 className="tracking-wider font-bold">Gain Muscle</h1>
             <button
-              className={`bg-white w-4 h-4 rounded-full ${
+              className={`w-4 h-4 rounded-full ${
                 activeItem === "bulk"
                   ? "bg-black ring-4 w-3 h-3 ring-white"
-                  : ""
+                  : "bg-white"
               }`}
               value={"bulk"}
               onClick={(e) => clickedItem(e)}
@@ -63,10 +69,10 @@ const MainPage = () => {
             />
             <h1 className="tracking-wider font-bold">Endurance</h1>
             <button
-              className={`bg-white w-4 h-4 rounded-full ${
+              className={`w-4 h-4 rounded-full ${
                 activeItem === "endurance"
                   ? "bg-black ring-4 w-3 h-3 ring-white"
-                  : ""
+                  : "bg-white"
               }`}
               value={"endurance"}
               onClick={(e) => clickedItem(e)}

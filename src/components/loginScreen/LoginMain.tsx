@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 const LoginMain = () => {
   const [user, setUser] = useState<boolean | null>(null);
+  const userCheck = localStorage.getItem("userDetails");
   const navigate = useNavigate();
+  console.log(userCheck);
 
-  if (user === true) {
+  if (userCheck) {
     navigate("/homepage");
-    return null;
   }
 
   return <LoginScreen setUser={setUser} />;

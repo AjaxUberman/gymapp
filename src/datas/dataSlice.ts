@@ -3,11 +3,18 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface dataState {
   firstSelection: string | null;
+  secondSelection: string | null;
+  weight: string | null;
+  height: string | null;
+  bmr: string | null;
 }
 
-// Define the initial state using that type
 const initialState: dataState = {
   firstSelection: null,
+  secondSelection: null,
+  weight: null,
+  height: null,
+  bmr: null,
 };
 
 export const dataSlice = createSlice({
@@ -17,8 +24,21 @@ export const dataSlice = createSlice({
     setFirstData: (state, action: PayloadAction<string>) => {
       state.firstSelection = action.payload;
     },
+    setSecondData: (state, action: PayloadAction<string>) => {
+      state.secondSelection = action.payload;
+    },
+    setWeight: (state, action: PayloadAction<string>) => {
+      state.weight = action.payload;
+    },
+    setHeight: (state, action: PayloadAction<string>) => {
+      state.height = action.payload;
+    },
+    setBmr: (state, action: PayloadAction<string>) => {
+      state.bmr = action.payload;
+    },
   },
 });
 
-export const { setFirstData } = dataSlice.actions;
+export const { setFirstData, setSecondData, setWeight, setBmr, setHeight } =
+  dataSlice.actions;
 export default dataSlice.reducer;

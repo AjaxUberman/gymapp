@@ -7,6 +7,8 @@ import LoginMain from "./components/loginScreen/LoginMain";
 import MainPage from "./components/homePage/firstDetails/MainPage";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
+import Profile from "./components/Profile/Profile";
+import PersonalData from "./components/Profile/PersonalData";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
   {
     path: "/homepage",
     element: <MainPage />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/personalData",
+    element: <PersonalData />,
   },
 ]);
 

@@ -6,7 +6,6 @@ const LoginMain = () => {
   const [user, setUser] = useState<boolean | null>(null);
   const userCheck = localStorage.getItem("userDetails");
   const navigate = useNavigate();
-  console.log(userCheck);
 
   if (userCheck) {
     navigate("/homepage");

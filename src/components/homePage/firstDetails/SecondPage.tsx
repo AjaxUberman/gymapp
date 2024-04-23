@@ -42,11 +42,13 @@ const SecondPage = () => {
   /* WEIGHT */
   const weightHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    const match = parseInt(value);
-    if (!isNaN(match)) {
+    const weight = parseInt(value);
+    if (!isNaN(weight)) {
       dispatch(setWeight(e.target.value));
+      localStorage.setItem("weight", weight.toString());
+
       setWeightChecker(true);
-      setInsWeight(match);
+      setInsWeight(weight);
     } else {
       setWeightChecker(false);
     }
@@ -55,11 +57,12 @@ const SecondPage = () => {
   /* HEIGHT */
   const heightHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    const match = parseInt(value);
-    if (!isNaN(match) && match >= 100 && match <= 230) {
+    const height = parseInt(value);
+    if (!isNaN(height) && height >= 100 && height <= 230) {
       dispatch(setHeight(e.target.value));
+      localStorage.setItem("height", height.toString());
       setHeightChecker(true);
-      setInsHeight(match);
+      setInsHeight(height);
     } else {
       setHeightChecker(false);
     }

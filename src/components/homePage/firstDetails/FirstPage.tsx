@@ -14,6 +14,7 @@ const MainPage = () => {
   /* NEXT BUTTON */
   const valueHandler = () => {
     dispatch(setFirstData(activeItem));
+    localStorage.setItem("selection", activeItem);
   };
 
   return (

@@ -6,10 +6,29 @@ import { Link } from "react-router-dom";
 const PersonalData = () => {
   const [name, setName] = useState("Your Name");
   const [surname, setSurName] = useState("Your Surname");
-  const weight = localStorage.getItem("weight");
-  const height = localStorage.getItem("height");
+  const [newBmr, setNewBmr] = useState("");
+  const [checker, setChecker] = useState<boolean | null>(null);
+
+  /* Local Items */
+  const weightString = localStorage.getItem("weight");
+  let weight: number;
+  if (weightString !== null) {
+    weight = parseFloat(weightString);
+  } else {
+    weight = 0;
+  }
+  const heightString = localStorage.getItem("height");
+  let height: number;
+  if (heightString !== null) {
+    height = parseFloat(heightString);
+  } else {
+    height = 0;
+  }
   const [newWeight, setNewWeight] = useState(weight);
   const [newHeight, setNewHeight] = useState(height);
+
+  console.log("weight:", weight, typeof weight);
+  console.log(newBmr);
 
   /* Data Changes */
   const imgChangeHandler = () => {};
@@ -22,21 +41,53 @@ const PersonalData = () => {
   };
 
   const weightHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setNewWeight(e.target.value);
+    const newValue = parseFloat(e.target.value);
+    setNewWeight(newValue);
   };
 
   const heightHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setNewHeight(e.target.value);
+    const newValue = parseFloat(e.target.value);
+    setNewHeight(newValue);
   };
 
+  /* SAVE BUTTON */
   const saveHandler = () => {
     if (newWeight !== null) {
       localStorage.setItem("weight", newWeight.toString());
+    } else {
+      setChecker(false);
     }
     if (newHeight !== null) {
       localStorage.setItem("height", newHeight.toString());
+    } else {
+      setChecker(false);
+    }
+    const bmrjson = localStorage.getItem("bmr");
+    if (bmrjson !== null) {
+      const bmrValue = JSON.parse(bmrjson);
+      if (
+        typeof weight === "number" &&
+        typeof height === "number" &&
+        typeof newWeight === "number" &&
+        typeof newHeight === "number"
+      ) {
+        const newValue =
+          bmrValue -
+          (9.247 * weight + 3.098 * height) +
+          (9.247 * newWeight + 3.098 * newHeight);
+        setNewBmr(newValue.toString());
+        localStorage.setItem("bmr", newValue.toString());
+      } else {
+        console.log("Geçersiz ağırlık veya boy değeri.");
+      }
+    } else {
+      console.log(
+        "localStorage'ta 'bmr' anahtarıyla ilişkilendirilmiş bir değer bulunamadı."
+      );
     }
   };
+
+  /* BMR */
 
   return (
     <div className="bg-white-bg relative h-screen flex flex-col ">

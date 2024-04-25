@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LoginScreen from "./LoginScreen";
 import { useNavigate } from "react-router-dom";
 
@@ -7,9 +7,11 @@ const LoginMain = () => {
   const userCheck = localStorage.getItem("userDetails");
   const navigate = useNavigate();
 
-  if (userCheck) {
-    navigate("/homepage");
-  }
+  useEffect(() => {
+    if (userCheck) {
+      navigate("/homepage");
+    }
+  }, [userCheck, navigate]);
 
   return <LoginScreen setUser={setUser} />;
 };

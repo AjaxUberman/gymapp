@@ -1,20 +1,19 @@
 import React, { useState } from "react";
-import NavBar from "./NavBar";
-import BottomBar from "./BottomBar";
-import Content from "./Content";
+import NavBar from "../userPage/NavBar";
+import BottomBar from "../userPage/BottomBar";
+import LibraryContent from "./LibraryContent";
 
 const UserScreen = () => {
-  const [active, setActiev] = useState("Workouts");
   return (
     <div className="bg-white-bg h-screen overflow-y-hidden overflow-x-hidden relative">
       <div className="border-b-2">
         <NavBar />
       </div>
       <div className="w-screen h-[675px] overflow-y-scroll overflow-x-hidden">
-        <Content />
+        <LibraryContent />
       </div>
       <div className="border-t-2 absolute bottom-0">
-        <BottomBar active={active} />
+        <BottomBar />
       </div>
     </div>
   );

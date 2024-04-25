@@ -13,9 +13,6 @@ const LoginScreen = ({
   const [datachecker, setDataChecker] = useState<boolean | null>(null);
 
   /* Storage Datas */
-
-  console.log(signed);
-
   /* Active Screen Control */
   const signHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     setActiveScreen(e.currentTarget.value);

@@ -11,6 +11,7 @@ module.exports = {
         "blue-item": "#7BC9FF",
         "item-text-cof": "#8B322C",
         "macro-value": "#B3C8CF",
+        "workout-bg": "#3C5B6F",
       },
       boxShadow: {
         "mavi-neon": "0 20px 50px #C4D7B2;",

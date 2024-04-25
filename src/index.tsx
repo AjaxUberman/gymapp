@@ -9,6 +9,8 @@ import { store } from "./app/store";
 import { Provider } from "react-redux";
 import Profile from "./components/Profile/Profile";
 import PersonalData from "./components/Profile/PersonalData";
+import LibraryMain from "./components/Library/LibraryMain";
+import PersonalWorkoutData from "./components/Profile/PersonalWorkoutData";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
   {
     path: "/personalData",
     element: <PersonalData />,
+  },
+  {
+    path: "/library",
+    element: <LibraryMain />,
+  },
+  {
+    path: "/personalWorkoutData",
+    element: <PersonalWorkoutData />,
   },
 ]);
 

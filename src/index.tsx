@@ -11,6 +11,7 @@ import Profile from "./components/Profile/Profile";
 import PersonalData from "./components/Profile/PersonalData";
 import LibraryMain from "./components/Library/LibraryMain";
 import PersonalWorkoutData from "./components/Profile/PersonalWorkoutData";
+import Terms from "./components/Profile/Terms";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/personalWorkoutData",
     element: <PersonalWorkoutData />,
+  },
+  {
+    path: "/terms",
+    element: <Terms />,
   },
 ]);
 

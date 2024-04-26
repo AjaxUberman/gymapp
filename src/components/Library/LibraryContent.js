@@ -9,15 +9,17 @@ const LibraryContent = () => {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
   };
 
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedName, setSelectedName] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-  const openModal = (photoUrl) => {
-    setSelectedPhoto(photoUrl);
+  const openModal = (exercise) => {
+    setSelectedPhoto(exercise.img);
+    setSelectedName(exercise.name);
     setShowModal(true);
   };
 
@@ -38,19 +40,24 @@ const LibraryContent = () => {
             {library[bodyPart].exercises.map((exercise, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center justify-between bg-dark-bg rounded-md h-36 pt-4 relative"
-                onClick={() => openModal(exercise.img)}
+                className="flex flex-col items-center justify-between bg-dark-bg rounded-md h-36 pt-4 px-4 relative slider-item"
+                onClick={() => openModal(exercise)}
               >
-                <h1 className="text-white text-sm">{exercise.name}</h1>
-                <h1 className="text-white text-sm opacity-65 capitalize">
-                  {exercise.type}
-                </h1>
-
-                <img
-                  src={exercise.img}
-                  className="w-10 h-10 absolute bottom-4 left-10 cursor-pointer"
-                  alt={exercise.name}
-                />
+                <div className="flex flex-col justify-center  gap-6">
+                  <div>
+                    <h1 className="text-white truncate ">{exercise.name}</h1>
+                    <h1 className="text-white text-sm opacity-65 capitalize font-extralight">
+                      {exercise.type}
+                    </h1>
+                  </div>
+                  <div className="flex justify-center">
+                    <img
+                      src={exercise.img}
+                      className="w-9 h-9  cursor-pointer"
+                      alt={exercise.name}
+                    />
+                  </div>
+                </div>
               </div>
             ))}
           </Slider>
@@ -59,6 +66,7 @@ const LibraryContent = () => {
       {showModal && (
         <div className="fixed top-0 left-0 z-50 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-70">
           <div className="max-w-md p-4 bg-white rounded-lg flex flex-col items-center">
+            <h1 className=" font-semibold">{selectedName}</h1>
             <img
               src={selectedPhoto}
               alt="Selected Exercise"

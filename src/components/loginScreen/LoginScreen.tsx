@@ -50,6 +50,14 @@ const LoginScreen = ({
     <>
       {activeScreen === "login" ? (
         <div className="bg-white-bg h-screen flex flex-col gap-4 justify-center items-center font-nato">
+          {signed === true ? (
+            <h1 className="px-4 py-2 rounded-full text-white bg-green-400 -translate-y-20 shadow-xl">
+              Sign Up Success
+            </h1>
+          ) : (
+            ""
+          )}
+
           <div className="bg-gray-50 border-2 border-black rounded-md w-60 h-60 flex flex-col justify-center gap-7 items-center px-4 relative ">
             <img
               alt=""

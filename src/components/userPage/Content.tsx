@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { GiShinyApple } from "react-icons/gi";
-import { GiRoastChicken } from "react-icons/gi";
-import { GiAvocado } from "react-icons/gi";
+import React, { useState } from "react";
+
 import Macros from "./Macros";
 import UserSlider from "./UserSlider.js";
 import WorkoutPage from "./WorkoutPage";
@@ -13,7 +11,9 @@ const Content = () => {
   return (
     <>
       {active ? (
-        <WorkoutPage active={active} setActive={setActive} />
+        <div className="w-screen">
+          <WorkoutPage active={active} setActive={setActive} />
+        </div>
       ) : (
         <div className="w-screen">
           <Macros />

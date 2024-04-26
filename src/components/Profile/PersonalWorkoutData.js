@@ -1,6 +1,5 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import { FaChevronLeft } from "react-icons/fa6";
-import { FaPenNib } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const PersonalData = () => {

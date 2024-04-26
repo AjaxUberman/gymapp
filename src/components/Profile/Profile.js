@@ -61,8 +61,10 @@ const Profile = () => {
             <FaAngleRight />
           </Link>
           {/* Supplements */}
-          <Link
-            to="/personalWorkoutData"
+          <a
+            href="https://proteinocean.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex justify-between items-center w-screen px-8 py-4 border-b-2 "
           >
             <div className="flex gap-2 items-center">
@@ -70,7 +72,7 @@ const Profile = () => {
               <div className="opacity-75">Supplements</div>
             </div>
             <FaAngleRight />
-          </Link>
+          </a>
           {/* TERMS */}
           <Link
             to="/terms"

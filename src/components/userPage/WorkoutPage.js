@@ -62,7 +62,7 @@ const WorkoutPage = ({ active, setActive }) => {
 
   return (
     <div className="h-fit flex items-center justify-center p-4 relative">
-      <div className="bg-workout-bg border-2 border-black rounded-xl h-fit w-80 absolute top-10">
+      <div className="bg-workout-bg border-2 w-60 border-black rounded-xl h-fit  absolute top-10">
         <button
           className="text-white text-2xl absolute left-4 top-4"
           onClick={closeHandler}
@@ -70,7 +70,7 @@ const WorkoutPage = ({ active, setActive }) => {
           <MdClose />
         </button>
         <div className="">
-          <h2 className=" text-red-400 text-center capitalize text-2xl font-bold pt-10">
+          <h2 className=" text-red-400 text-center capitalize text-2xl font-bold pt-10 px-4">
             Your {active} Workout
           </h2>
           {randomExercise && (
@@ -79,14 +79,16 @@ const WorkoutPage = ({ active, setActive }) => {
                 <p className="font-semibold text-dark-bg  text-xl">
                   {randomExercise.name}
                 </p>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col items-center gap-4">
+                  <div className="flex flex-col items-center">
+                    <p className="font-bold">4 SETS</p>
+                    <p className="font-semibold opacity-75">12-15 REP</p>
+                  </div>
                   <img
                     src={randomExercise.img}
                     className="w-20 h-20 object-cover shadow-xl"
                     alt={randomExercise.name}
                   />
-                  <p className="font-bold">3 SETS</p>
-                  <p className="font-semibold opacity-75">6-8 REP</p>
                 </div>
               </div>
               {randomIso && (
@@ -94,14 +96,16 @@ const WorkoutPage = ({ active, setActive }) => {
                   <p className="font-semibold text-dark-bg text-xl">
                     {randomIso.name}
                   </p>
-                  <div className="flex items-center gap-4">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="flex flex-col items-center">
+                      <p className="font-bold">4 SETS</p>
+                      <p className="font-semibold opacity-75">12-15 REP</p>
+                    </div>
                     <img
                       src={randomIso.img}
                       className="w-20 h-20 object-cover shadow-xl"
                       alt={randomIso.name}
                     />
-                    <p className="font-bold">4 SETS</p>
-                    <p className="font-semibold opacity-75">12-15 REP</p>
                   </div>
                 </div>
               )}
@@ -110,14 +114,16 @@ const WorkoutPage = ({ active, setActive }) => {
                   <p className="font-semibold text-dark-bg text-xl">
                     {randomIso2.name}
                   </p>
-                  <div className="flex items-center gap-4">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="flex flex-col items-center">
+                      <p className="font-bold">4 SETS</p>
+                      <p className="font-semibold opacity-75">12-15 REP</p>
+                    </div>
                     <img
                       src={randomIso2.img}
                       className="w-20 h-20 object-cover shadow-xl"
                       alt={randomIso2.name}
                     />
-                    <p className="font-bold">3 SETS</p>
-                    <p className="font-semibold opacity-75">12-15 REP</p>
                   </div>
                 </div>
               )}

@@ -1,4 +1,4 @@
-# TodoGame
+# Fitness App
 
 ## Screenshots
 
